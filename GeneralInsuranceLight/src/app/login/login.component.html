@@ -1,1 +1,43 @@
-<p>login works!</p>
+<div class="navbar-fixed-top containe purple topBotomBordersOut">
+    <a routerLink="/Home">HOME</a>
+    <a routerLink="/Login">LOGIN</a>
+    <a routerLink="/Contact">CONTACT</a>
+    <a>ABOUT US</a>
+    <a>HELP</a>
+    <a routerLink="/FAQ">FAQ</a>
+</div>
+
+<div class="main">
+    <div class="contain">
+        <div class="signup-content">
+            <div class="signup-img">
+                <img src="../../assets/Images/Car-Insurance.jpg" alt="">
+            </div>
+            <div class="signup-form">
+                <form method="POST" class="register-form" id="register-form">
+                    <h2>Login</h2>
+                    <div class="form-group">
+                        <label for="email">Email ID :</label>
+                        <input type="email"  name="email" id="email" required/>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password :</label>
+                        <input type="password"  name="password" id="password" required/>
+                        <span class="select"><i class="zmdi zmdi-caret-down"></i></span>
+                        
+                    </div>
+                    <div class="form-submit">
+                        <button class="submit" id="register"><a routerLink="/Register">Register</a></button>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <button class="submit" id="register"><a>Forgot Password</a></button>
+                    </div>
+                    <div class="form-submit">
+                        <input type="submit" value="Login" class="submit" name="submit" id="submit" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
