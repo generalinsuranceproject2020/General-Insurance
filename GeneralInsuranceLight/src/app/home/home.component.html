@@ -1,11 +1,3 @@
-<div class="navbar-fixed-top containe purple topBotomBordersOut">
-    <a routerLink="/Home">HOME</a>
-    <a routerLink="/Login">LOGIN</a>
-    <a routerLink="/Contact">CONTACT</a>
-    <a>ABOUT US</a>
-    <a>HELP</a>
-    <a routerLink="/FAQ">FAQ</a>
-</div>
 <div class="slider">
     <div class = "slide">
         <img src = "../../assets/Images/private-car.jpg">
@@ -44,7 +36,7 @@
                     <p>
                         Insurance offers protection against accidents, theft, natural calamities & other unforeseen circumstance that could harm your vehicle.
                     </p>
-                    <a routerLink="/Buy">Buy Now</a>
+                    <a (click)="buyInsurance()">Buy Now</a>
                 </div>
             </div>
         </td>
@@ -57,7 +49,7 @@
                     <p>
                         Insurance At time of an unforeseen event when you need immediate assistance & support without being burdened by unnecessary delays & long-winded procedures.
                     </p>
-                    <a routerLink="/Renew">Renew Now</a>
+                    <a (click)="Insurance()">Renew Now</a>
                 </div>
             </div>
         </td>
@@ -70,11 +62,10 @@
                     <p>
                         At time of an unforeseen event when you need immediate assistance & support without being burdened by unnecessary delays & long-winded procedures.
                     </p>
-                    <a routerLink="/Claim">Claim Now</a>
+                    <a (click)="Insurance()">Claim Now</a>
                 </div>
             </div>
         </td>
-        
     </tr>
     </table>
 </div>
@@ -142,116 +133,122 @@
     </tr>
 </table>
 
-<footer class="page-footer font-small mdb-color pt-4">
-    <!-- Footer Links -->
-    <div class="text-center text-md-left">
-      <!-- Footer links -->
-      <div class="row text-center text-md-left mt-3 pb-3" style="background-color: slateblue;">
-        <!-- Grid column -->
-        <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3" style="color: blanchedalmond;">
-          <h6 class="text-uppercase mb-4 font-weight-bold" style="font-size: x-large;">Company name</h6>
-          <p style="font-size: large;">
-            LTI Vehicle Insurance recognizes the importance of your vehicle and offers motor Insurance policies that take care of your vehicles in case of any unforeseen event.
-          </p>
-        </div>
-        <!-- Grid column -->
-  
-        <hr class="w-100 clearfix d-md-none">
-  
-        <!-- Grid column -->
-        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3" style="color: blanchedalmond;">
-          <h6 class="text-uppercase mb-4 font-weight-bold" style="font-size: x-large;">Company</h6>
-          <p style="font-size: large;">
-            <a href="#!" style="color: blanchedalmond; text-decoration: none;">Customer</a>
-          </p>
-          <p style="font-size: large;">
-            <a href="#!" style="color: blanchedalmond;text-decoration: none;">Car Insutance</a>
-          </p>
-          <p style="font-size: large;">
-            <a href="#!" style="color: blanchedalmond;text-decoration:none;">Bike Insurance</a>
-          </p>
-          <p style="font-size: large;">
-            <a href="#!" style="color: blanchedalmond;text-decoration: none;">Policy Rate</a>
-          </p>
-        </div>
-        <!-- Grid column -->
-  
-        <hr class="w-100 clearfix d-md-none">
-  
-        <!-- Grid column -->
-        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3" style="color: blanchedalmond;">
-          <h6 class="text-uppercase mb-4 font-weight-bold" style="font-size: x-large;">Useful links</h6>
-          <p style="font-size: large;">
-            <a href="#!" style="color: blanchedalmond;text-decoration: none;">Your Account</a>
-          </p>
-          <p style="font-size: large;">
-            <a href="#!" style="color: blanchedalmond;text-decoration: none;">About Us</a>
-          </p>
-          <p style="font-size: large;">
-            <a  href="#!" style="color: blanchedalmond;text-decoration: none;">Insurance Rates</a>
-          </p>
-          <p style="font-size: large;">
-            <a href="#!" style="color: blanchedalmond;text-decoration: none;">Help</a>
-          </p>
-        </div>
-  
-        <!-- Grid column -->
-        <hr class="w-100 clearfix d-md-none">
-  
-        <!-- Grid column -->
-        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
-          <h6 class="text-uppercase mb-4 font-weight-bold" style="font-size: x-large; color: blanchedalmond;">Contact</h6>
-          <p style=" font-size: large; color: blanchedalmond;">
-            <i class="fa fa-home"></i> India, Delhi</p>
-          <p style="font-size: large; color: blanchedalmond;">
-            <i class="fa fa-envelope"></i> info@gmail.com</p>
-          <p style="font-size: large; color: blanchedalmond;">
-            <i class="fa fa-phone"></i> + 022 - 234 567 88</p>
-          <p style="font-size: large; color: blanchedalmond;">
-            <i class="fa fa-print"></i> + 022 - 234 567 89</p>
-        </div>
-        <!-- Grid column -->
-  
+<h1 style="text-align: center; color: slateblue; font-weight: 700; font-size: 48px;"> Customer Reviews </h1><br>
+<div class="pt-5 pb-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-6">
+          <h3 class="mb-3"></h3>
       </div>
-      <!-- Footer links -->
-      <!-- Grid row -->
-      <div class="row d-flex align-items-center" style="background-color: white;">
-        <!-- Grid column -->
-        <div class="col-md-7 col-lg-8">
-          <!--Copyright-->
-          <p class="text-center text-md-left" style="color: black; font-size: larger;">© 2020 Copyright:
-            <a href="https://mdbootstrap.com/">
-              <strong style="color: slateblue;"> CarInsurance.com</strong>
-            </a>
-          </p>
-  
-        </div>
-        <!-- Grid column -->
-  
-        <!-- Grid column -->
-        <div class="col-md-5 col-lg-4 ml-lg-0">
-  
-          <!-- Social buttons -->
-          <div class="text-center text-md-right">
-            <ul class="list-unstyled list-inline">
-              <li class="list-inline-item">
-                <span><a href="#" class="fa fa-twitter"></a></span>
-              </li>
-              <li class="list-inline-item">
-                <span><a href="#" class="fa fa-youtube"></a></span>
-              </li>
-              <li class="list-inline-item">
-                <span><a href="#" class="fa fa-facebook"></a></span>
-              </li>
-              <li class="list-inline-item">
-                <span><a href="#" class="fa fa-linkedin"></a></span>
-              </li>
-            </ul>
+      <div class="col-12">
+        <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="row">
+                  <div class="col-md-4 mb-3">
+                      <div class="card polaroid body-color">
+                          <img class="img-fluid imges" alt="100%x280" src="https://i2.wp.com/digital-photography-school.com/wp-content/uploads/2016/02/Headshot-Photography-London-1052.jpeg?ssl=1">
+                          <div class="card-body " >
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                              <p class="card-text" style="color: white;">LTI General Insurance has unbeatable car insurance prices and a knowledgeable customer service. Also, they provide smooth claim processing!</p>
+
+                          </div>
+
+                      </div>
+                  </div>
+                  <div class="col-md-4 mb-3">
+                    <div class="card polaroid body-color">
+                        <img class="img-fluid imges" alt="100%x280" src="https://i2.wp.com/digital-photography-school.com/wp-content/uploads/2016/02/What-to-wear-2.jpeg?ssl=1">
+                        <div class="card-body">
+                          <span class="fa fa-star checked"></span>
+                          <span class="fa fa-star checked"></span>
+                          <span class="fa fa-star checked"></span>
+                          <span class="fa fa-star checked"></span>
+                          <span class="fa fa-star"></span>
+                            <p class="card-text" style="color:white">Phenomenal customer support from one of the best insurance companies. I’ll always renew my car insurance policy with LTI General Insurance.</p>
+
+                        </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4 mb-3">
+                      <div class="card polaroid body-color">
+                          <img class="img-fluid imges" alt="100%x280" src="https://i0.wp.com/digital-photography-school.com/wp-content/uploads/2016/02/Headshot-on-Black-Background_1.jpg?ssl=1">
+                          <div class="card-body">
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                              <p class="card-text" style="color: white;">My car insurance policy has given me the coverage from the financial liabilities. And I am very much happy with it. Kudos to team General Insuarance.</p>
+
+                          </div>
+                      </div>
+                  </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="row">
+                <div class="col-md-4 mb-3">
+                  <div class="card polaroid body-color">
+                      <img class="img-fluid imges" alt="100%x280" src="https://i2.wp.com/digital-photography-school.com/wp-content/uploads/2016/02/What-to-wear-3.jpeg?ssl=1">
+                      <div class="card-body">
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                          <p class="card-text" style="color: white;">I chose my car insurance plans very wisely and nicely. It has been a wonderful thing for me and my car and my bike. I am grateful to team General Insurance.</p>
+
+                      </div>
+
+                  </div>
+              </div>
+              <div class="col-md-4 mb-3">
+                  <div class="card polaroid body-color">
+                      <img class="img-fluid imges" alt="100%x280" src="https://i0.wp.com/digital-photography-school.com/wp-content/uploads/2016/02/Posing-example.jpeg?ssl=1">
+                      <div class="card-body">
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                          <p class="card-text" style="color: white;">I have got to know about the top plans when I purchased the car insurance policy from the website of the policybazaar. Indeed a great plan. </p>
+
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-4 mb-3">
+                  <div class="card polaroid body-color">
+                      <img class="img-fluid imges" alt="100%x280" src="https://i0.wp.com/digital-photography-school.com/wp-content/uploads/2016/02/Headshot-Photography-London-0997.jpg?ssl=1">
+                      <div class="card-body">
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <p class="card-text" style="color: white;">My claim was settled easily when I contacted with the customer care of the policybazaar. The team is really good. Thank you General Insuarance.</p>
+
+                      </div>
+                  </div>
+              </div>
+              </div>
+            </div>
           </div>
+          <div class="col-6 text-right">
+            <a class="mb-3 mr-1" style="color: slateblue; text-align:center;" href="#carouselExampleIndicators2" role="button" data-slide="prev">
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-arrow-left"></i>
+            </a>
+            <a class="mb-3 " style="color: slateblue; text-align:center;" href="#carouselExampleIndicators2" role="button" data-slide="next">
+                <i class="fa fa-arrow-right"></i>
+            </a>
         </div>
-        <!-- Grid column -->
+        </div>
       </div>
-      <!-- Grid row -->
     </div>
-    <!-- Footer Links -->
-  </footer>
+  </div>
+</div>
+

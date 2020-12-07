@@ -1,0 +1,213 @@
+<div class="main">
+  <div class="contain">
+      <div class="signup-content">
+          <div class="signup-img">
+              <img src="../../assets/Images/Car-Insurance.jpg" alt="">
+          </div>
+          <div class="signup-form">
+              <form method="POST" [formGroup]="UserForm " (ngSubmit)="onFormSubmit()">
+                  <h2>Register</h2>
+          
+                      <div class="form-group">
+                          <label for="name">Full Name :</label>
+                          <input type="text" class="form-control" formControlName="CustomerName">
+                          <div class="alert alert-danger" *ngIf="CustomerName.errors && CustomerName.touched">
+                              <small *ngIf="CustomerName.errors.required">
+                                Full Name is required
+                              </small>
+                              <small  *ngIf="CustomerName.errors.pattern">
+                                Name should contain only first name & last name
+                              </small>
+                          </div>    
+                      </div>
+                  <div class="form-group">
+                      <label for="email">Email ID :</label>
+                      <input class="form-control" type="email" formControlName="Email">
+                      <div class="alert alert-danger" *ngIf="Email.errors && Email.touched">
+                          <small *ngIf="Email.errors.required">
+                            Email is required
+                          </small>
+                          <small  *ngIf="Email.errors.pattern">
+                            Email is not in correct format!!
+                          </small>
+                      </div>   
+                      
+                  </div>
+                  <div class="form-group">
+                      <label for="birth_date">Date of Birth :</label>
+                      <input class="form-control" type="date" formControlName="DateOfBirth" [max]="getToday()"> 
+                      <div class="alert alert-danger" *ngIf="DateOfBirth.errors && DateOfBirth.touched">
+                          <small *ngIf="DateOfBirth.errors.required">
+                            Date of Birth is required
+                          </small>  
+                        </div>
+                      
+                  </div>
+                  <div class="form-group">
+                      <label for="ContactNumber">Phone Number :</label>
+                      <input class="form-control" type="number" formControlName="ContactNumber">
+                      <div class="alert alert-danger" *ngIf="ContactNumber.errors && ContactNumber.touched">
+                          <small *ngIf="ContactNumber.errors.required">
+                            Contact Number is required
+                          </small>
+                          <small *ngIf="ContactNumber.errors.pattern">
+                            Please enter a 10 digit Phone number!!!
+                          </small>
+                        </div> 
+                      
+                  </div>
+                  <div class="form-group">
+                      <label for="address">Address :</label>
+                      <input class="form-control" type="text" formControlName="Address">
+                      <div class="alert alert-danger" *ngIf="Address.errors && Address.touched">
+                          <small *ngIf="Address.errors.required">
+                            Address is required
+                          </small>  
+                        </div>
+                      
+                  </div>
+                  <div class="form-group">
+                      <label for="pincode">Pincode :</label>
+                      <input class="form-control" type="number" formControlName="Pincode" >
+                      <div class="alert alert-danger" *ngIf="Pincode.errors && Pincode.touched">
+                          <small *ngIf="Pincode.errors.required">
+                            Pincode is required
+                          </small>
+                          <small *ngIf="Pincode.errors.pattern">
+                              Pincode length should be 6
+                            </small>    
+                        </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="city">Country:</label>
+                    <div class="form-select">
+                        <select class="form-control" class ="mdb-select md-form" formControlName="Country">
+                          <option value="">None</option>
+                          <option value="India">India</option>
+                          </select>
+                          <span class="select-icon"><i class="zmdi zmdi-caret-down"></i></span>
+                          <div class="alert alert-danger" *ngIf="Country.errors && Country.touched">
+                            <small *ngIf="Country.errors.required">
+                              Country is required
+                            </small>  
+                          </div>
+                    </div>
+                </div>
+
+                  <div class="form-row">
+                      <div class="form-group">
+                          <label for="state">State :</label>
+                          <div class="form-select">
+                              <select class="form-control" class ="mdb-select md-form" formControlName="State">
+                                  <option value="">None</option>
+                                  <option value="ap">Andhra Pradesh</option>
+                                  <option value="ar">Arunanchal Pradesh</option>
+                                  <option value="as">Assam</option>
+                                  <option value="bh">Bihar</option>
+                                  <option value="ch">Chhattisgarh</option>
+                                  <option value="go">Goa</option>
+                                  <option value="gj">Gujarat</option>
+                                  <option value="ha">Haryana</option>
+                                  <option value="hp">Himachal Pradesh</option>
+                                  <option value="jh">Jharkhand</option>
+                                  <option value="ka">Karnataka</option>
+                                  <option value="ke">Kerala</option>
+                                  <option value="mp">Madhya Pradesh</option>
+                                  <option value="mh">Maharashtra</option>
+                                  <option value="ma">Manipur</option>
+                                  <option value="mg">Meghalaya</option>
+                                  <option value="mz">Mizoram</option>
+                                  <option value="ng">Nagaland</option>
+                                  <option value="od">Odisha</option>
+                                  <option value="pj">Punjab</option>
+                                  <option value="rj">Rajasthan</option>
+                                  <option value="sk">Sikkim</option>
+                                  <option value="tn">Tamil Nadu</option>
+                                  <option value="tl">Telangana</option>
+                                  <option value="tr">Tripura</option>
+                                  <option value="uk">Uttarakhand</option>
+                                  <option value="wb">West Bengal</option>
+                              </select>
+                              <span class="select-icon"><i class="zmdi zmdi-caret-down"></i></span>
+                              <div class="alert alert-danger" *ngIf="State.errors && State.touched">
+                                  <small *ngIf="State.errors.required">
+                                    State is required
+                                  </small>  
+                                </div>
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <label for="city">City :</label>
+                          <div class="form-select">
+                              <select class="form-control" class ="mdb-select md-form" formControlName="City">
+                                  <option value="">None</option>
+                                  <option value="agartala">Agartala</option>
+                                  <option value="aizawl">Aizawl</option>
+                                  <option value="amravati">Amaravati</option>
+                                  <option value="bhopal">Bhopal</option>
+                                  <option value="bhubaneshwar">Bhubaneswar</option>
+                                  <option value="chandigarh">Chandigarh</option>
+                                  <option value="chennai">Chennai</option>
+                                  <option value="dharamshala">Dharamshala</option>
+                                  <option value="dehradun">Dehradun</option>
+                                  <option value="dispur">Dispur</option>
+                                  <option value="gairson">Gairson</option>
+                                  <option value="gandhinagar">Gandhinagar</option>
+                                  <option value="gangtok">Gangtok</option>
+                                  <option value="hyderabad">Hyderabad</option>
+                                  <option value="imphal">Imphal</option>
+                                  <option value="itanagar">Itanagar</option>
+                                  <option value="jaipur">Jaipur</option>
+                                  <option value="kohima">Kohima</option>
+                                  <option value="kolkata">Kolkata</option>
+                                  <option value="lucknow">Lucknow</option>
+                                  <option value="mumbai">Mumbai </option>
+                                  <option value="nagpur">Nagpur</option>
+                                  <option value="nayaraipur">Naya Raipur</option>
+                                  <option value="panaji">Panaji</option>
+                                  <option value="patna">Patna</option>
+                                  <option value="shimla">Shimla</option>
+                                  <option value="shillong">Shillong</option>
+                                  <option value="thiruvananthapuram">Thiruvananthapuram</option>                            
+                              </select>
+                              <span class="select-icon"><i class="zmdi zmdi-caret-down"></i></span>
+                              <div class="alert alert-danger" *ngIf="City.errors && City.touched">
+                                  <small *ngIf="City.errors.required">
+                                    City is required
+                                  </small>  
+                                </div>
+                          </div>
+                      </div>
+                  </div>
+      
+                 
+                  <div class="form-group">
+                      <label for="password">Password :</label>
+                      <input class="form-control" type="password" formControlName="Password">
+                      <span class="select"><i class="zmdi zmdi-caret-down"></i></span>
+                      <div *ngIf="Password.touched && Password.invalid" class="alert alert-danger">
+                          <div *ngIf="Password.errors.required">Password is required.</div>
+                          <div *ngIf="Password.errors.pattern">Enter Password with minlength as 8 and combination of lowercase,uppercase,number and special character.</div>
+                      </div>
+                      
+                  </div>
+                  <div class="form-group">
+                      <label for="password1">Confirm Password :</label>
+                      <input class="form-control" type="password" class="form-control" formControlName="ConfirmPassword">
+                      <div *ngIf="ConfirmPassword.touched && ConfirmPassword.invalid" class="alert alert-danger">
+                          <div *ngIf="ConfirmPassword.errors.required">Password is required.</div>
+                          <div *ngIf="ConfirmPassword.errors.confirmedValidator">Password and Confirm Password must be match.</div>
+                      </div>
+                  </div>
+                  
+                  <!--<div class="form-submit">
+                      <input type="submit" value="Register" class="submit" name="submit" id="submit" />
+                  </div>-->
+                  <button type="submit" class="btn btn-block btn-success" [disabled]="UserForm.invalid">Add User</button>  
+            <p>{{massage}}</p>
+              </form>
+          </div>
+      </div>
+  </div>
+
+</div>

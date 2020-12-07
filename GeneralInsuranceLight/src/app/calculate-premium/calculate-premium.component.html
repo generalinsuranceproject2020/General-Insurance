@@ -1,0 +1,85 @@
+<div class="bg-contact3" style="background-image: url('../../assets/Images/car.jpg');">
+    <div class="container-contact3">
+        <div class="wrap-contact3">
+            <form class="contact3-form validate-form" [formGroup]="customForm" (ngSubmit)="totalPremium(lblName.id)">
+                <span class="contact3-form-title">
+                    Calculate Insurance
+                </span>
+
+                <div class="wrap-contact3-form-radio">
+                    <div class="contact3-form-radio m-r-42">
+                        <input class="input-radio3" formControlName="vehicle" id="radio3" type="radio" name="vehicle" value="two" checked="checked" (change)="changeCar($event)">
+                        <label class="label-radio3" for="radio3">
+                            Two Wheeler
+                        </label>
+                    </div>
+
+                    <div class="contact3-form-radio">
+                        <input class="input-radio3" formControlName="vehicle" id="radio4" type="radio" name="vehicle" value="four" (change)="changeCar($event)"> 
+                        <label class="label-radio3" for="radio4">
+                            Four Wheeler
+                        </label>
+                    </div>
+                </div>
+                <div *ngIf="isSubmitted && customForm.invalid" class="alert alert-danger">
+                    <p>Please select either value</p>
+                </div>
+
+                <div class="wrap-contact3-form-radio">
+                    <div class="contact3-form-radio m-r-42">
+                        <input class="input-radio3" formControlName="third" id="radio1" type="radio" name="third" value="thirdparty" checked="checked">
+                        <label class="label-radio3" for="radio1">
+                            Third Party
+                        </label>
+                    </div>
+
+                    <div class="contact3-form-radio">
+                        <input class="input-radio3" formControlName="third" id="radio2" type="radio" name="third" value="comprehensive"> 
+                        <label class="label-radio3" for="radio2">
+                            Comprehensive
+                        </label>
+                    </div>
+                </div>
+                <div *ngIf="isSubmitted && customForm.invalid" class="alert alert-danger">
+                    <p>Please select either value</p>
+                 </div>
+                <div class="form-row">
+                    <div class="form-group ">
+                        <div class="wrap-input3 form-select">
+                                <select class ="mdb-select md-form" formControlName="car" style="margin-bottom: 8px;" name="cartype" id="cartype" required>
+                                    <option [ngValue]="null" disabled>Select Model</option>
+                                    <option *ngFor="let car of cars" [ngValue]="car.cost">{{car.name}}</option>
+                                </select>
+                                <span class="select-icon"><i class="zmdi zmdi-caret-down"></i></span>
+                            
+                        </div>
+                    </div>
+                </div>
+                    <div *ngIf="f.car.touched && f.car.invalid" class="alert alert-danger"> 
+                        <p>Please select a value</p>
+                     </div>
+                     <div *ngIf="isSubmitted && customForm.invalid" class="alert alert-danger">
+                        Select value
+                    </div>
+                <div class="wrap-input3 validate-input" data-validate="This field is required">
+                    <input class="input3" type="number" formControlName="Age" name="Age" placeholder="Enter Age" required/>
+                    <span class="focus-input3"></span>
+                </div>
+                    <div *ngIf="(f.Age.dirty || f.Age.touched) && f.Age.invalid" class="alert alert-danger">
+                        <p>Please Enter Age</p>
+                     </div>
+                <div *ngIf="isSubmitted && customForm.invalid" class="alert alert-danger">
+                    Select Age
+                </div>
+                <label #lblName id="lblName" class="wrap-input3 form-select" style="color: white; margin-top: 45px;">
+                </label>
+                <div class="container-contact3-form-btn">
+                    <button type="submit" class="contact3-form-btn" style="align-self: center" >
+                        Calculate Premium
+                    </button>
+                </div>
+                
+            </form>
+        </div>
+    </div>
+</div>

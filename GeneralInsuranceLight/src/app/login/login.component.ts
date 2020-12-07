@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';    
+import { RegisterationService } from '../services/registerationservice';  
+ import { FormsModule } from '@angular/forms';
+ import { Router } from '@angular/router';  
+import { Login } from '../models/login';
 
 @Component({
   selector: 'app-login',
@@ -7,14 +10,52 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
-  constructor(private router: Router) { }
+  model : Login = {
+    Email:null,
+    Password:null
+  };
+  errorMessage:string; 
+  constructor(private registerationservice:RegisterationService,private router:Router) { }
 
   ngOnInit(): void {
+    /*sessionStorage.removeItem('Email');    
+    sessionStorage.clear(); */
   }
-
-  register()
-  {
-    this.router.navigate(['/', 'Register']);
+  login(Email, Password){    
+    debugger;    
+    this.registerationservice.Login(this.model).subscribe(    
+      data => {    
+        debugger;    
+        if(data.Status=="Success")    
+        {       
+          sessionStorage.setItem('user', Email.value);
+          //this.router.navigate(['/Dashboard']); 
+          //this.router.navigate(['/home']); 
+          if(sessionStorage.getItem('user') == "admin@gmail.com")
+          {
+            console.log("Success");  
+            this.router.navigate(['/Admin']);
+          }
+          else
+          {
+            console.log("Success");  
+            this.router.navigate(['/Customer']);
+          }
+          //debugger;    
+        }    
+        else{    
+          this.errorMessage = data.Message;    
+        }    
+      },    
+      error => {    
+        this.errorMessage = error.message;    
+      });    
+      
+  }; 
+  finalregister(){
+    this.router.navigate(['/Register']);
+  }
+  forgotPassword(){
+    this.router.navigate(['/ForgotPassword']);
   }
 }

@@ -5,7 +5,6 @@ div.containe {
     margin: 0 auto;
     padding: 2em 3em;
     text-align: right;
-    height: 100%;  
     object-fit: cover;
 }
 
@@ -226,7 +225,6 @@ iframe {
   display: block;
   width: 100%;
   background: transparent;
-  font-family: Poppins-Regular;
   font-size: 15px;
   color: rgb(247, 245, 245);
   line-height: 1.2;

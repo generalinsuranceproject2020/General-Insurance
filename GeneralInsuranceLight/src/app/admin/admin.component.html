@@ -1,0 +1,63 @@
+<div class="modal fade" id="modalSubscriptionForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+<table class="center" class="table table-hover">
+    <thead>
+    <tr>
+        <td>Adhar</td>
+        <td>Vehicle Document</td>
+        <td>Driving </td>
+        <td>Approved</td>
+    </tr>
+    </thead>
+        <tbody *ngFor="let e of empdetails">
+            <tr>
+                <td><img src="../assets/Image/{{e.adhar}}" height="100" width="100"></td>
+                <td><img src="../assets/Image/{{e.vehicledocument}}" height="100" width="100"></td>
+                <td><img src="../assets/Image/{{e.License}}" height="100" width="100"></td>
+                <td><button (click)="Approve(e.PolicyID)">Approve</button></td>
+            </tr>
+
+        </tbody>
+</table>
+</div>
+</div>
+</div>
+<h1 style="text-align: center;">Admin Dashboard</h1>
+<div>
+    <p style="font-size: large;text-align: center;"><a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalSubscriptionForm" style="float: center;text-align: center;">
+        New Insurance</a>
+        <a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalSubscriptionForm1" style="float: center;text-align: center;">
+            Claim</a>
+    </p>
+   </div> 
+
+<div class="modal fade" id="modalSubscriptionForm1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+<table class="center" class="table table-hover">
+    <thead>
+    <tr>
+        <td>PolicyId</td>
+        <td>Claim Amount</td>
+        <td>Claim Reason</td>
+        <td>Document</td>
+        <td>Claim Status</td>
+    </tr>
+    </thead>
+        <tbody *ngFor="let e of empdetails1">
+            <tr>
+                <td>{{e.PolicyID}}</td>
+                <td>{{e.ClaimAmount}}</td>
+                <td>{{e.CLaimReason}}</td>
+                <td><img src="../assets/Image/{{e.ClaimVehicleConditionURL}}" height="100" width="100"></td>
+                <td><button (click)="ApproveClaim(e.ClaimID)">Approve</button></td>
+            </tr>
+
+        </tbody>
+</table>
+</div>
+</div>
+</div>

@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+.body-color{
+    background-color: slateblue;
+}
+.card-color{
+    background-color:#9370DB;
+}
+.social-link {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    border-radius: 50%;
+    transition: all 0.3s;
+    font-size: 0.9rem;
+  }
+  
+  .social-link:hover,
+  .social-link:focus {
+    background: #ddd;
+    text-decoration: none;
+    color: #555;
+  }
+  .body-instagram{
+   width:30px; height:30px;
+        background: #f09433; 
+      background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); 
+      background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+      background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );
+        }
+.body-blue{
+background-color: #385898;
+color: snow;
+        }
+.body-white{
+    background-color: #00ACEE;
+    color: snow;
+}
+.body-lightblue{
+    background-color: #0e76a8;
+    color: snow;
+}

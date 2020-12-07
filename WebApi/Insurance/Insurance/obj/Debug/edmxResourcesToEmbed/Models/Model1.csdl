@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="General_InsuranceModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Claim">
+    <Key>
+      <PropertyRef Name="ClaimID" />
+    </Key>
+    <Property Name="ClaimID" Type="Int32" Nullable="false" />
+    <Property Name="CustomerID" Type="Int32" />
+    <Property Name="VehicleID" Type="Int32" />
+    <Property Name="PolicyID" Type="Int32" />
+    <Property Name="ClaimDate" Type="DateTime" Precision="3" />
+    <Property Name="ClaimAmount" Type="Double" Nullable="false" />
+    <Property Name="CLaimReason" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ClaimStatus" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ClaimVehicleConditionURL" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK__Claim__CustomerI__5812160E" FromRole="Claim" ToRole="Customer" />
+    <NavigationProperty Name="Policy" Relationship="Self.FK__Claim__PolicyID__59FA5E80" FromRole="Claim" ToRole="Policy" />
+    <NavigationProperty Name="Vehicle" Relationship="Self.FK__Claim__VehicleID__59063A47" FromRole="Claim" ToRole="Vehicle" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="CustomerID" />
+    </Key>
+    <Property Name="CustomerID" Type="Int32" Nullable="false" />
+    <Property Name="CustomerName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DateOfBirth" Type="DateTime" Precision="3" />
+    <Property Name="ContactNumber" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="State" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Country" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Pincode" Type="Int32" />
+    <NavigationProperty Name="Claims" Relationship="Self.FK__Claim__CustomerI__5812160E" FromRole="Customer" ToRole="Claim" />
+    <NavigationProperty Name="Policies" Relationship="Self.FK__Policy__Customer__5441852A" FromRole="Customer" ToRole="Policy" />
+    <NavigationProperty Name="Vehicles" Relationship="Self.FK__Vehicle__Custome__5165187F" FromRole="Customer" ToRole="Vehicle" />
+    <Property Name="ConfirmPassword" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Policy">
+    <Key>
+      <PropertyRef Name="PolicyID" />
+    </Key>
+    <Property Name="PolicyID" Type="Int32" Nullable="false" />
+    <Property Name="CustomerID" Type="Int32" />
+    <Property Name="VehicleID" Type="Int32" />
+    <Property Name="PolicyName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PolicyAmount" Type="Double" Nullable="false" />
+    <Property Name="Period" Type="Int32" Nullable="false" />
+    <Property Name="PolicyStatus" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IssueDate" Type="DateTime" Precision="3" />
+    <Property Name="ExpiryDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Claims" Relationship="Self.FK__Claim__PolicyID__59FA5E80" FromRole="Policy" ToRole="Claim" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK__Policy__Customer__5441852A" FromRole="Policy" ToRole="Customer" />
+    <NavigationProperty Name="Vehicle" Relationship="Self.FK__Policy__VehicleI__5535A963" FromRole="Policy" ToRole="Vehicle" />
+  </EntityType>
+  <EntityType Name="Vehicle">
+    <Key>
+      <PropertyRef Name="VehicleID" />
+    </Key>
+    <Property Name="VehicleID" Type="Int32" Nullable="false" />
+    <Property Name="CustomerID" Type="Int32" />
+    <Property Name="Manufacturer" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Model" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="VehicleType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="DrivingLicense" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="PurchaseDate" Type="DateTime" Precision="3" />
+    <Property Name="RegisterationNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EngineNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ChassisNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AadharURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="VehicleDocumentURL" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DrivingLicenseURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Claims" Relationship="Self.FK__Claim__VehicleID__59063A47" FromRole="Vehicle" ToRole="Claim" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK__Vehicle__Custome__5165187F" FromRole="Vehicle" ToRole="Customer" />
+    <NavigationProperty Name="Policies" Relationship="Self.FK__Policy__VehicleI__5535A963" FromRole="Vehicle" ToRole="Policy" />
+  </EntityType>
+  <Association Name="FK__Claim__CustomerI__5812160E">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+    <End Role="Claim" Type="Self.Claim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="Claim">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Claim__PolicyID__59FA5E80">
+    <End Role="Policy" Type="Self.Policy" Multiplicity="0..1" />
+    <End Role="Claim" Type="Self.Claim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Policy">
+        <PropertyRef Name="PolicyID" />
+      </Principal>
+      <Dependent Role="Claim">
+        <PropertyRef Name="PolicyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Claim__VehicleID__59063A47">
+    <End Role="Vehicle" Type="Self.Vehicle" Multiplicity="0..1" />
+    <End Role="Claim" Type="Self.Claim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vehicle">
+        <PropertyRef Name="VehicleID" />
+      </Principal>
+      <Dependent Role="Claim">
+        <PropertyRef Name="VehicleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Policy__Customer__5441852A">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+    <End Role="Policy" Type="Self.Policy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="Policy">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Vehicle__Custome__5165187F">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+    <End Role="Vehicle" Type="Self.Vehicle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="Vehicle">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Policy__VehicleI__5535A963">
+    <End Role="Vehicle" Type="Self.Vehicle" Multiplicity="0..1" />
+    <End Role="Policy" Type="Self.Policy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vehicle">
+        <PropertyRef Name="VehicleID" />
+      </Principal>
+      <Dependent Role="Policy">
+        <PropertyRef Name="VehicleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="General_InsuranceEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Claims" EntityType="Self.Claim" />
+    <EntitySet Name="Customers" EntityType="Self.Customer" />
+    <EntitySet Name="Policies" EntityType="Self.Policy" />
+    <EntitySet Name="Vehicles" EntityType="Self.Vehicle" />
+    <AssociationSet Name="FK__Claim__CustomerI__5812160E" Association="Self.FK__Claim__CustomerI__5812160E">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="Claim" EntitySet="Claims" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Claim__PolicyID__59FA5E80" Association="Self.FK__Claim__PolicyID__59FA5E80">
+      <End Role="Policy" EntitySet="Policies" />
+      <End Role="Claim" EntitySet="Claims" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Claim__VehicleID__59063A47" Association="Self.FK__Claim__VehicleID__59063A47">
+      <End Role="Vehicle" EntitySet="Vehicles" />
+      <End Role="Claim" EntitySet="Claims" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Policy__Customer__5441852A" Association="Self.FK__Policy__Customer__5441852A">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="Policy" EntitySet="Policies" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Vehicle__Custome__5165187F" Association="Self.FK__Vehicle__Custome__5165187F">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="Vehicle" EntitySet="Vehicles" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Policy__VehicleI__5535A963" Association="Self.FK__Policy__VehicleI__5535A963">
+      <End Role="Vehicle" EntitySet="Vehicles" />
+      <End Role="Policy" EntitySet="Policies" />
+    </AssociationSet>
+    <FunctionImport Name="CustomerVehicle" ReturnType="Collection(General_InsuranceModel.CustomerVehicle_Result)" />
+    <FunctionImport Name="CheckUser">
+      <Parameter Name="username" Mode="In" Type="String" />
+      <Parameter Name="password" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="CustomerVehicle_Result">
+    <Property Type="Int32" Name="CustomerID" Nullable="true" />
+    <Property Type="Int32" Name="VehicleID" Nullable="false" />
+  </ComplexType>
+</Schema>

@@ -1,43 +1,91 @@
-<div class="navbar-fixed-top containe purple topBotomBordersOut">
-    <a routerLink="/Home">HOME</a>
-    <a routerLink="/Login">LOGIN</a>
-    <a routerLink="/Contact">CONTACT</a>
-    <a>ABOUT US</a>
-    <a>HELP</a>
-    <a routerLink="/FAQ">FAQ</a>
+<div class="row mx-auto">
+    <form class="form-elegant" #cForm="ngForm" (ngSubmit)="submit(policyNo, reason, image, labelName.id, mobilenumber)">
+        <!--Form without header-->
+        <div class="card" style="margin-left: 570px; margin-top: 100px;">
+      
+          <div class="card-body mx-4">
+            <div class="text-center">
+                <h3 class="dark-grey-text mb-5"><strong>Claim Insurance</strong></h3>
+              </div>
+             <!-- Material input name -->
+          <div class="md-form form-sm">
+            <select  id ="Select" name="policyNo" class="browser-default custom-select" #policyNo="ngModel" [(ngModel)]="claim.policyNo">
+                <option selected>Select Policy Number</option>
+                <option id=lbl></option>
+            </select>
+          </div>
+          <!-- Material input email -->
+          <div class="md-form form-sm">
+            <input type="text" #mobilenumber="ngModel" name="mobilenumber" [(ngModel)]="claim.mobilenumber" id="materialFormEmailModalEx1" class="form-control form-control-sm">
+            <label for="materialFormEmailModalEx1">Mobile Number</label>
+          </div>
+  
+          <!-- Material input subject -->
+          <div class="md-form form-sm">
+            <select #reason="ngModel" name="reason" [(ngModel)]="claim.reason" id ="Select" class="browser-default custom-select">
+                <option [ngValue]="null" selected>Select Reason</option>
+                <option *ngFor="let reason of reasons" [ngValue]="reason">{{reason}}</option>
+            </select>
+          </div>
+  
+          <!-- Material textarea message -->
+          <div class="md-form form-sm">
+            <div class="input-group">
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="inputGroupFile01"
+                        aria-describedby="inputGroupFileAddon01" #image accept="image/*" required (change)="handleFileInput($event.target.files)">
+                    <label class="custom-file-label" for="inputGroupFile01" >Vehicle's Condition Picture </label>
+                </div>
+            </div>
+        </div>
+        <label style="color: white;">Claim Amount: </label>
+            <label #labelName id="labelName" class="wrap-input3 form-select" style="color: white; margin-top: 45px;">
+        </label>
+  
+          <div class="text-center mt-4 mb-2">
+            <button class="btn btn-primary" type="submit">Claim
+              <i class="fa fa-send ml-2"></i>
+            </button>
+          </div>
+        </div>
+        </div>
+    </form>
 </div>
-
-<div class="bg-contact3" style="background-image: url('../../assets/Images/car.jpg');">
+<!--<div class="bg-contact3" style="background-image: url('../../assets/Images/car.jpg');">
     <div class="container-contact3">
         <div class="wrap-contact3">
-            <form class="contact3-form validate-form">
+            <form class="contact3-form validate-form" #claimForm="ngForm">
                 <span class="contact3-form-title">
                     Claim Insurance
                 </span>
 
                 <div class="wrap-input3 validate-input" data-validate="This field is required">
-                    <input class="input3" type="text" name="policyno" placeholder="Enter Policy Number" required/>
-                    <span class="focus-input3"></span>
+                    <input class="input3" type="text" #policyno="ngModel" [(ngModel)]="claim.policyno" name="policyno" placeholder="Enter Policy Number" required/>
+                    <select #policyNo="ngModel" name="policyNo" [(ngModel)]="claim.policyNo" required>
+                        <option *ngFor="let p of allpolicy" [value]="p.policyNo">{{p.policyNo}}</option>
+                    </select>
+                    <span class="select-icon"><i class="zmdi zmdi-caret-down"></i></span>
                 </div>
                 
                 <div class="wrap-input3 validate-input" data-validate = "Valid field is required: MH02 123">
-                    <input class="input3" type="text" name="mobile" placeholder="Enter Mobile Number" required/>
+                    <input class="input3" type="text" #mobile="ngModel" [(ngModel)]="claim.mobile" name="mobile" placeholder="Enter Mobile Number" required/>
                     <span class="focus-input3"></span>
                 </div>
                 
                 <div class="form-row">
                     <div class="form-group ">
                         <div class="wrap-input3 form-select">
-                            <select class ="mdb-select md-form" style="margin-bottom: 8px;" name="reason" id="reason" required>
-                                <option value="" selected>Claim Reason</option>
-                                <option value="ap">Natural Disaster</option>
-                                <option value="ar">Man Made Disaster</option>
-                                <option value="as">Road Accident</option>
-                                <option value="bh">Theft</option>
-                            </select>
+                            <select #reason="ngModel" name="reason" [(ngModel)]="claim.reason">
+                                <option *ngFor="let reason of reasons" [value]="reason">{{reason}}</option>
+                              </select>
                             <span class="select-icon"><i class="zmdi zmdi-caret-down"></i></span>
                         </div>
                     </div>
+                </div>
+                <div class="wrap-input3 validate-input">
+                    <label class="input3" style="color: white;">Vehicle Condition Photo</label>
+                    <input class="input3" type="file" #image accept="image/*" required (change)="handleFileInput($event.target.files)"/>
+                    <span class="focus-input3"></span>
                 </div>
                 <div class="container-contact3-form-btn">
                     <button class="contact3-form-btn" style="align-self: center">
@@ -47,4 +95,4 @@
             </form>
         </div>
     </div>
-</div>
+</div>-->

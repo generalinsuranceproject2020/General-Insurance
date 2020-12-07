@@ -1,0 +1,165 @@
+ <div class="row">
+
+  <div class="coloumn">
+  <div class="w3-container">
+   
+  
+    <div class="card-deck">
+      <div class="card ">
+        <div class="card-body text-center">
+            <h2>Customer Details</h2>
+            <table class="table table-bordered table-responsive">
+              <thead>
+                <tr>
+                  <th>Customer Name</th>
+                  <th>Email</th>
+                  <th>Mobile Number</th>
+                  <th>Date Of Birth</th>
+                </tr>
+              </thead>
+              <tbody *ngFor="let e of custdetails">
+                <tr>
+                  <td>{{e.CustomerName}}</td>
+                  <td>{{e.Email}}</td>
+                  <td>{{e.MobileNumber}}</td>
+                  <td>{{e.DateOfBirth}}</td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  </div>
+  
+  <div class="column">
+  <div class="w3-container">
+    <div class="w3-card-4" style="width:80%;">
+  <button type="button" data-toggle="modal" data-target="#exampleModal">
+    Launch demo modal
+  </button>
+    </div>
+  </div>
+  <!-- Modal -->
+  <div class="modal fade bd-example-modal-lg"  id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header light-blue darken-3 white-text">
+          <h5 class="modal-title" id="exampleModalLongTitle">Policy Details</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div>
+            <table class="table table-bordered table-responsive">
+              <thead>
+                <tr>
+                  <th>Policy No</th>
+                  <th>Policy Name </th>
+                  <th>Vehicle Model </th>
+                  <th>Policy Amount </th>
+                  <th>Policy Period</th>
+                  <th>Policy Expiry Date</th>
+                  <th>Claim</th>
+                  <th>Renew </th>
+                </tr>
+              </thead>
+              <tbody *ngFor="let e of empdetails">
+                <tr>
+                  <td>{{e.PolicyID}}</td>
+                  <td>{{e.PolicyName}}</td>
+                  <td>{{e.Model}}</td>
+                  <td>{{e.PolicyAmount}}</td>
+                  <td>{{e.Period}}</td>
+                  <td>{{e.ExpiryDate}}</td>
+                  <td>
+                    <button type="button" class="btn btn-success"  data-dismiss="modal" (click)="submit(e.PolicyID, e.Period, e.PolicyAmount)">Claim</button>
+                  </td>
+                  <td>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="submit1(e.PolicyID, e.ExpiryDate)">Renew</button>
+                  </td>
+  
+                </tr>
+              </tbody>
+            </table>
+  
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  
+  
+  <div class="modal fade" id="modalContactForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true">
+    <!--Modal: Contact form-->
+    <div class="modal-dialog cascading-modal" role="document">
+  
+      <!--Content-->
+      <div class="modal-content">
+  
+        <!--Header-->
+        <div class="modal-header primary-color white-text">
+          <h4 class="title">
+            <i class="fa fa-pencil-alt"></i> Claim Insurance</h4>
+          <button type="button" class="close waves-effect waves-light" data-dismiss="modal"
+            aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <!--Body-->
+        <div class="modal-body">
+  
+          <!-- Material input name -->
+          <div class="md-form form-sm">
+            <i class="fa fa-envelope prefix"></i>
+            <input type="text" id="materialFormNameModalEx1" class="form-control form-control-sm">
+            <label for="materialFormNameModalEx1">Policy No:</label>
+          </div>
+  
+          <!-- Material input email -->
+          <div class="md-form form-sm">
+            <i class="fa fa-lock prefix"></i>
+            <input type="password" id="materialFormEmailModalEx1" class="form-control form-control-sm">
+            <label for="materialFormEmailModalEx1">Mobile Number</label>
+          </div>
+  
+          <!-- Material input subject -->
+          <div class="md-form form-sm">
+  <select  id ="Select" class="browser-default custom-select">
+    <option selected>Reasosn</option>
+    <option value="1">One</option>
+    <option value="2">Two</option>
+    <option value="3">Three</option>
+  </select>
+          </div>
+  
+          <!-- Material textarea message -->
+          <div class="md-form form-sm">
+          <div class="input-group">
+              <div class="custom-file">
+            <input type="file" class="custom-file-input" id="inputGroupFile01"
+                aria-describedby="inputGroupFileAddon01">
+            <label class="custom-file-label" for="inputGroupFile01">Vehicle's Condition Picture </label>
+          </div>
+  </div>
+          </div>
+  
+          <div class="text-center mt-4 mb-2">
+            <button class="btn btn-primary" data-dismiss="modal">Claim
+              <i class="fa fa-send ml-2"></i>
+            </button>
+          </div>
+  
+        </div>
+      </div>
+      <!--/.Content-->
+    </div>
+    <!--/Modal: Contact form-->
+  </div>
+  </div>
