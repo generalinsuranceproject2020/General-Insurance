@@ -48,7 +48,7 @@ export class PlansComponent implements OnInit {
       data =>{
         console.log('done');
 
-        //this.router.navigate(['/Plans']);
+        this.router.navigate(['/Customer']);
       }
     );
   }
