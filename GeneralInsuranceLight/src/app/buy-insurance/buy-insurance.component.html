@@ -68,7 +68,7 @@
                 </div>
             
                 <div class="wrap-input3 validate-input" data-validate = "This field is required">
-                    <input class="input3" type="date" #pdate="ngModel" [(ngModel)]="buy.pdate" name="pdate" placeholder="Enter Purchase Date" required/>
+                    <input class="input3" type="date" #pdate="ngModel" [(ngModel)]="buy.pdate" name="pdate" placeholder="Enter Purchase Date" required [max]="getToday()">
                     <span class="focus-input3"></span>
                 </div>
                 <div *ngIf="(pdate.touched || buyForm.submitted) && pdate.errors?.required" class="alert alert-danger">

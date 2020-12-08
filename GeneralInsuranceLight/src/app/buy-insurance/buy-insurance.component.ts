@@ -43,6 +43,9 @@ export class BuyInsuranceComponent implements OnInit {
   ngOnInit(): void {
     
   } 
+  getToday(): string {
+    return new Date().toISOString().split('T')[0]
+  }
 
   handleFileInput(file: FileList) {
     this.aadharurl = file.item(0);

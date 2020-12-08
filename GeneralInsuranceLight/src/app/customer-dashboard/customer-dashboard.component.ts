@@ -51,7 +51,7 @@ export class CustomerDashboardComponent implements OnInit {
     {
       var d = edate;
       d.setMonth(d.getMonth() - 1);
-      alert("Sorry you can't renew this policy "+ d);
+      alert("Sorry you can't renew this policy! Please Try after "+ d);
     }
   }
   fetchCustomers(){
