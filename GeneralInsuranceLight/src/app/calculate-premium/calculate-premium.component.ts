@@ -158,5 +158,4 @@ export class CalculatePremiumComponent implements OnInit {
       ]
     }
   }
-
 }

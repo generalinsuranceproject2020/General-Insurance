@@ -63,7 +63,7 @@ namespace Insurance.Controllers
 
             foreach (var item in emp2)
             {
-                if ("hdivya09@gmail.com" == item.Email)
+                if (CustEmail == item.Email)
                 {
                     Customerid = item.CustomerID;
                 }

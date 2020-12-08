@@ -10,14 +10,16 @@
              <!-- Material input name -->
           <div class="md-form form-sm">
             <select  id ="Select" name="policyNo" class="browser-default custom-select" #policyNo="ngModel" [(ngModel)]="claim.policyNo">
-                <option selected>Select Policy Number</option>
+                <option [ngValue]="null" selected>Select Policy Number</option>
                 <option id=lbl></option>
             </select>
           </div>
           <!-- Material input email -->
+          
           <div class="md-form form-sm">
+            <span >Mobile Number</span>
             <input type="text" #mobilenumber="ngModel" name="mobilenumber" [(ngModel)]="claim.mobilenumber" id="materialFormEmailModalEx1" class="form-control form-control-sm">
-            <label for="materialFormEmailModalEx1">Mobile Number</label>
+            
           </div>
   
           <!-- Material input subject -->

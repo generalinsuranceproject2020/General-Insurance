@@ -47,7 +47,7 @@ export class PlansComponent implements OnInit {
     this.plans.policy(policy.value, period.value, premium, Email, model).subscribe(
       data =>{
         console.log('done');
-
+        alert("Premium is : " + premium);
         this.router.navigate(['/Customer']);
       }
     );

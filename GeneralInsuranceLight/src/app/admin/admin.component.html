@@ -13,9 +13,9 @@
     </thead>
         <tbody *ngFor="let e of empdetails">
             <tr>
-                <td><img src="../assets/Image/{{e.adhar}}" height="100" width="100"></td>
-                <td><img src="../assets/Image/{{e.vehicledocument}}" height="100" width="100"></td>
-                <td><img src="../assets/Image/{{e.License}}" height="100" width="100"></td>
+                <td><img src="http://localhost:20481/Image/{{e.adhar}}" height="100" width="100"></td>
+                <td><img src="http://localhost:20481/Image/{{e.vehicledocument}}" height="100" width="100"></td>
+                <td><img src="http://localhost:20481/Image/{{e.License}}" height="100" width="100"></td>
                 <td><button (click)="Approve(e.PolicyID)">Approve</button></td>
             </tr>
 
@@ -52,7 +52,7 @@
                 <td>{{e.PolicyID}}</td>
                 <td>{{e.ClaimAmount}}</td>
                 <td>{{e.CLaimReason}}</td>
-                <td><img src="../assets/Image/{{e.ClaimVehicleConditionURL}}" height="100" width="100"></td>
+                <td><img src="http://localhost:20481/Image/{{e.ClaimVehicleConditionURL}}" height="100" width="100"></td>
                 <td><button (click)="ApproveClaim(e.ClaimID)">Approve</button></td>
             </tr>
 
