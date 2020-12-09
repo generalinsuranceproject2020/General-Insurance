@@ -29,9 +29,8 @@ export class RenewInsuranceComponent implements OnInit {
     if(mobile.value == mobileno)
     {
       this.isSubmitted = true;
-      console.log(period.value);
       //debugger;  
-      this.renewservice.postFile(policy.value, period.value).subscribe(
+        this.renewservice.postFile(policy.value, period.value).subscribe(
         data =>{
           console.log('done');
           this.router.navigate(['/Customer']);

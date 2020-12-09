@@ -35,22 +35,29 @@ namespace Insurance.Controllers
         {
             if (CheckEmail(to) == true)
             {
+                try
+                {
 
-                string from = "nand211098@gmail.com";
-                string subject = "Welcome to Car Insurance";
-                Random generator = new Random();
-                int r = generator.Next(1000, 10000);
-                string body = "Hello , Your otp is " + r;
+                    string from = "nand211098@gmail.com";
+                    string subject = "Welcome to Car Insurance";
+                    Random generator = new Random();
+                    int r = generator.Next(1000, 10000);
+                    string body = "Hello , Your otp is " + r;
 
-                SmtpClient smtp = new SmtpClient();
+                    SmtpClient smtp = new SmtpClient();
 
-                MailMessage mm = new MailMessage();
-                mm.From = new MailAddress(from);
-                mm.To.Add(to);
-                mm.Subject = subject;
-                mm.Body = body;
-                await Task.Run(() => smtp.SendAsync(mm, null));
-                return r;
+                    MailMessage mm = new MailMessage();
+                    mm.From = new MailAddress(from);
+                    mm.To.Add(to);
+                    mm.Subject = subject;
+                    mm.Body = body;
+                    await Task.Run(() => smtp.SendAsync(mm, null));
+                    return r;
+                }
+                catch(Exception)
+                {
+                    throw;
+                }
             }
             else
             {
@@ -70,17 +77,24 @@ namespace Insurance.Controllers
             byte[] encode = new byte[password1.Length];
             encode = Encoding.UTF8.GetBytes(password1);
             msg = Convert.ToBase64String(encode);
-            foreach (var item in emp)
+            try
             {
-                if (item.Email == email)
+                foreach (var item in emp)
                 {
-                    item.Password = msg;
-                    item.ConfirmPassword = msg;
-                    db.Entry(item).State = System.Data.Entity.EntityState.Modified;
-                    db.SaveChanges();
-                    return Request.CreateResponse(HttpStatusCode.OK, "Valid");
-                }
+                    if (item.Email == email)
+                    {
+                        item.Password = msg;
+                        item.ConfirmPassword = msg;
+                        db.Entry(item).State = System.Data.Entity.EntityState.Modified;
+                        db.SaveChanges();
+                        return Request.CreateResponse(HttpStatusCode.OK, "Valid");
+                    }
 
+                }
+            }
+            catch
+            {
+                throw;
             }
             return Request.CreateResponse(HttpStatusCode.NotFound, "NotFound");
         }

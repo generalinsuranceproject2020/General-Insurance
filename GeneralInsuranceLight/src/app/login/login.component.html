@@ -11,6 +11,7 @@
                         <label for="email">Email ID :</label>
                         <input type="email"  name="Email" #Email="ngModel" [(ngModel)]="model.Email" class="form-control sty1" placeholder="Email" required>
                     </div>
+                    <div class="validation-error" *ngIf="Email.invalid && Email.touched" style="color: red;">This Field is Required.</div>
 
                     <div class="form-group">
                         <label for="password">Password :</label>
@@ -19,6 +20,7 @@
                         <span class="select"><i class="zmdi zmdi-caret-down"></i></span>
                         
                     </div>
+                    <div class="validation-error" *ngIf="Password.invalid && Password.touched" style="color: red;">This Field is Required.</div>
                     <div class="form-submit">
                         <button class="submit" id="register" (click)="finalregister()">Register</button>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

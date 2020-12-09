@@ -16,25 +16,32 @@ namespace Insurance.Controllers
             var emp = db.Vehicles.ToList();
             var emp1 = db.Policies.ToList();
             List<Admin> a = new List<Admin>();
-            foreach (var item in emp)
+            try
             {
-                foreach (var item1 in emp1)
+                foreach (var item in emp)
                 {
-                    if (item.VehicleID == item1.VehicleID)
+                    foreach (var item1 in emp1)
                     {
-                        if (item1.PolicyStatus == "Pending")
+                        if (item.VehicleID == item1.VehicleID)
                         {
-                            var adhar = item.AadharURL;
-                            var vehicledocument = item.VehicleDocumentURL;
-                            var License = item.DrivingLicenseURL;
-                            var status = item1.PolicyStatus;
-                            int PolicyID = item1.PolicyID;
-                            a.Add(new Admin(adhar, vehicledocument, License, status, PolicyID));
+                            if (item1.PolicyStatus == "Pending")
+                            {
+                                var adhar = item.AadharURL;
+                                var vehicledocument = item.VehicleDocumentURL;
+                                var License = item.DrivingLicenseURL;
+                                var status = item1.PolicyStatus;
+                                int PolicyID = item1.PolicyID;
+                                a.Add(new Admin(adhar, vehicledocument, License, status, PolicyID));
+                            }
+
                         }
-
                     }
-                }
 
+                }
+            }
+            catch(Exception)
+            {
+                throw;
             }
             if (a.Count > 0)
             {

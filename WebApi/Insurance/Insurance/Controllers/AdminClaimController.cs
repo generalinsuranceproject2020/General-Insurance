@@ -13,28 +13,36 @@ namespace Insurance.Controllers
         General_InsuranceEntities db = new General_InsuranceEntities();
         public HttpResponseMessage Get()
         {
+
             var emp = db.Claims.ToList();
             var emp1 = db.Policies.ToList();
             List<Admin1> a = new List<Admin1>();
-            foreach (var item in emp1)
+            try
             {
-                foreach (var item1 in emp)
+                foreach (var item in emp1)
                 {
-                    if (item.PolicyID == item1.PolicyID)
+                    foreach (var item1 in emp)
                     {
-                        if (item1.ClaimStatus == "Pending")
+                        if (item.PolicyID == item1.PolicyID)
                         {
-                            var PolicyID = item1.PolicyID;
-                            var ClaimAmount = item1.ClaimAmount;
-                            var CLaimReason = item1.CLaimReason;
-                            var ClaimStatus = item1.ClaimStatus;
-                            var ClaimVehicleConditionURL = item1.ClaimVehicleConditionURL;
-                            var ClaimID = item1.ClaimID;
-                            a.Add(new Admin1(Convert.ToInt32(PolicyID), ClaimAmount, CLaimReason, ClaimStatus, ClaimVehicleConditionURL, Convert.ToInt32(ClaimID)));
+                            if (item1.ClaimStatus == "Pending")
+                            {
+                                var PolicyID = item1.PolicyID;
+                                var ClaimAmount = item1.ClaimAmount;
+                                var CLaimReason = item1.CLaimReason;
+                                var ClaimStatus = item1.ClaimStatus;
+                                var ClaimVehicleConditionURL = item1.ClaimVehicleConditionURL;
+                                var ClaimID = item1.ClaimID;
+                                a.Add(new Admin1(Convert.ToInt32(PolicyID), ClaimAmount, CLaimReason, ClaimStatus, ClaimVehicleConditionURL, Convert.ToInt32(ClaimID)));
+                            }
                         }
                     }
-                }
 
+                }
+            }
+            catch(Exception)
+            {
+                throw;
             }
             if (a.Count > 0)
             {

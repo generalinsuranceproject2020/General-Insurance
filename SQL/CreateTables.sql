@@ -30,7 +30,9 @@ Insert into Customer values('Nand','nand@gmail.com','2001-08-03', '7894563215', 
 select * from Customer
 select * from Policy
 select * from Vehicle
-create PROC CustomerVehicle
+select * from Claim
+
+/*create PROC CustomerVehicle
 AS
 BEGIN
 Select CustomerID, VehicleID from Vehicle Order BY CustomerID, VehicleID 
@@ -44,6 +46,11 @@ end
 declare @dcount int;
 exec @dcount=CheckUser @username="divya@gmail.com",@password="divya"
 print @dcount
+*/
+
+update Policy
+set ExpiryDate='2021-01-03 13:00:27.413'
+where PolicyID=12
 
 Insert into Policy values(6, 3, 'Comprehensive', 2371, 3, 'Approved', '2020-01-04', '2023-01-03')
 Insert into Policy values(6, 4, 'ThirdParty', 1371, 3, 'Approved', '2020-02-04', '2023-02-03')

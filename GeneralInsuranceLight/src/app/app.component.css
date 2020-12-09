@@ -1,4 +1,23 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins');
+
+.social-link {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s;
+    font-size: 0.9rem;
+  }
+  
+  .social-link:hover,
+  .social-link:focus {
+    background: black;
+    text-decoration: none;
+    color: #555;
+  }
 div.containe {
     font-family: Raleway;
     margin: 0 auto;
@@ -53,39 +72,4 @@ div.topBotomBordersOut a:hover:before, div.topBotomBordersOut a:hover:after {
     position:fixed !important;
     opacity: 0;
     top: 70px;
-}
-/*Footer*/
-.fa {
-    padding: 5px;
-    font-size: 20px;
-    width: 45px;
-    height: 35px;
-    text-align: center;
-    text-decoration: none;
-    line-height: 1em;
-    border-radius: 25px;
-    margin-top: 15px;
-}
-.fa:hover {
-    opacity: 0.7;
-}
-.fa-facebook {
-background: #3B5998;
-color: white;
-}
-.fa-twitter {
-background: #55ACEE;
-color: white;
-}
-.fa-linkedin {
-background: #007bb5;
-color: white;
-}
-.fa-youtube {
-background: #bb0000;
-color: white;
-}
-a:hover{
-    color: darkgray;
-    transition: 0.3s ease-out;
 }

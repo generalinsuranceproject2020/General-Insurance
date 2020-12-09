@@ -1,51 +1,102 @@
- <div class="row">
+<div class="row " style="margin-left: 20em; margin-top: 5em;">
 
   <div class="coloumn">
   <div class="w3-container">
-   
-  
     <div class="card-deck">
+
       <div class="card ">
-        <div class="card-body text-center">
-            <h2>Customer Details</h2>
-            <table class="table table-bordered table-responsive">
-              <thead>
-                <tr>
-                  <th>Customer Name</th>
-                  <th>Email</th>
-                  <th>Mobile Number</th>
-                  <th>Date Of Birth</th>
-                </tr>
-              </thead>
-              <tbody *ngFor="let e of custdetails">
-                <tr>
-                  <td>{{e.CustomerName}}</td>
-                  <td>{{e.Email}}</td>
-                  <td>{{e.MobileNumber}}</td>
-                  <td>{{e.DateOfBirth}}</td>
-                </tr>
-              </tbody>
-            </table>
+        <div class="card-body ">
+    
+    <div class="front">
+
+      <div class="avatar mx-auto text-center">
+        <img src="../../assets/Images/CustomerDetailImage.png" class="rounded-circle " style="width: 240px;" alt="woman avatar">
+         
+      </div>
+      <br>
+      <br>
+
+      <div class=" text-center" style="color: slateblue; font-size: 2em; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; text-align: center;  text-shadow: 6px 6px 0px rgba(133, 133, 133, 0.2);
+">Customer Details</div>
+    
+  </div>
+  
+  <div class="back">
+
+      <div style="width:100%;">
+               <h1 style="color:rgb(245, 212, 253);">Customer Details</h1>
+               <div *ngFor="let e of custdetails">
+                <h3 class="sub-title">Customer Name-</h3>
+                <h3 class="title">{{e.CustomerName}}</h3>  
+                <hr>
+                <h3 class="sub-title">Email-</h3> 
+                <h3 class="title">{{e.Email}}</h3>
+                <hr>
+                <h3 class="sub-title">Mobile Number-</h3>  
+                <h3 class="title"> {{e.MobileNumber}}</h3>
+                <hr>
+                <h3 class="sub-title">Date Of Birth-</h3> 
+                <h3 class="title">{{e.DateOfBirth}}</h3>
+
+              </div>
+       
         </div>
       </div>
     </div>
   </div>
-  
+
   </div>
+  </div>
+  </div>
+  
   
   <div class="column">
-  <div class="w3-container">
-    <div class="w3-card-4" style="width:80%;">
-  <button type="button" data-toggle="modal" data-target="#exampleModal">
-    My Approved Policies
-  </button>
+  <div class="w3-container" >
+    <div class="card-deck">
+    <div class="card1 card-image" >
+
+      <div class="card-body">
+      <div class=" front1" >
+ 
+        <div class="avatar mx-auto text-center">
+
+          <img src="../../assets/Images/PolicyImage.png" class="rounded-circle" style="width: 220px;"
+            alt="woman avatar">
+
+        </div>
+        <br>
+        <br>
+        <div class=" text-center" style="color: snow; font-size: 2em; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; text-align: center;  text-shadow: 6px 6px 0px rgba(0,0,0,0.2);
+        ">Approved Policies</div>
+      </div>
+     
+      <div class="back1  " style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url(https://mdbootstrap.com/img/Photos/Horizontal/Work/4-col/img%20%2814%29.jpg);">
+    
+        <div class="w3-container ">
+          <div  style="width:100%;">
+            <h3 class="card-title pt-2"><strong>This Policy Covers :</strong></h3>
+            <ul class="Lists">
+              <li> Road Accident </li>
+              <li> Natural Disaster </li>
+              <li> Man-made Disaster </li>
+              <li> Theft </li>
+            </ul>
+              <a class="btn purple-gradient" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-clone left"></i>Policies</a>
+
+          </div>
+        </div>
+ 
+      </div>
+      
+      </div>
     </div>
-  </div>
+
+
   <!-- Modal -->
   <div class="modal fade bd-example-modal-lg"  id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
       <div class="modal-content">
-        <div class="modal-header light-blue darken-3 white-text">
+        <div class="modal-header darken-3 white-text" style="background-color: slateblue;">
           <h5 class="modal-title" id="exampleModalLongTitle">Policy Details</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -75,10 +126,10 @@
                   <td>{{e.Period}}</td>
                   <td>{{e.ExpiryDate}}</td>
                   <td>
-                    <button type="button" class="btn btn-success"  data-dismiss="modal" (click)="submit(e.PolicyID, e.Period, e.PolicyAmount)">Claim</button>
+                    <button type="button" class="btn btn-outline-secondary btn-rounded waves-effect"  data-dismiss="modal" (click)="submit(e.PolicyID, e.Period, e.PolicyAmount)">Claim</button>
                   </td>
                   <td>
-                    <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="submit1(e.PolicyID, e.ExpiryDate)">Renew</button>
+                    <button type="button" class="btn btn-secondary btn-rounded" data-dismiss="modal" (click)="submit1(e.PolicyID, e.ExpiryDate)">Renew</button>
                   </td>
   
                 </tr>
@@ -87,7 +138,7 @@
   
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-deep-purple" data-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
@@ -161,5 +212,7 @@
       <!--/.Content-->
     </div>
     <!--/Modal: Contact form-->
+  </div>
+  </div>
   </div>
   </div>

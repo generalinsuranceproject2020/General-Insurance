@@ -30,31 +30,71 @@
           width="70%" height="200px" frameborder="0" style="border:0"></iframe>
         </div>
         <div class="contactForm">
-            <form>
+            <form method="POST" [formGroup]="UserForm " (ngSubmit)="onFormSubmit()">
                 <h2>Contact Us</h2>
                 <div class="inputBox">
-                    <input type="text" name="" required="required">
+                    <input type="text" name="CustomerName" formControlName="CustomerName"  required="required">
                     <span>Full Name</span>
                 </div>
-                <div class="inputBox">
-                    <input type="text" name="" required="required">
-                    <span>Email</span>
-                </div>
-                <div class="inputBox">
-                    <input type="number" name="" required="required">
-                    <span>Contact</span>
-                </div>
-                <div class="inputBox">
-                    <input type="text" name="" required="required">
-                    <span>Subject</span>
-                </div>
-                <div class="inputBox">
-                    <textarea required="required"></textarea>
-                    <span>Type Your Message.....</span>
-                </div>
-                <div class="inputBox">
-                    <input type="submit" name="" value="Send">
-                </div>
+                        <div class="alert alert-danger" *ngIf="CustomerName.errors && CustomerName.touched">
+                            <small *ngIf="CustomerName.errors.required">
+                              Full Name is required
+                            </small>
+                            <small  *ngIf="CustomerName.errors.pattern">
+                              Name should contain only first name & last name
+                            </small>
+                        </div>    
+                        <div class="inputBox">
+                            <input type="text" name="Email" formControlName="Email" required="required">
+                            <span>Email</span>
+                        </div>
+                    <div class="alert alert-danger" *ngIf="Email.errors && Email.touched">
+                        <small *ngIf="Email.errors.required">
+                          Email is required
+                        </small>
+                        <small  *ngIf="Email.errors.pattern">
+                          Email is not in correct format!!
+                        </small>
+                    </div>   
+                    
+                    <div class="inputBox">
+                        <input type="number" name="ContactNumber" formControlName="ContactNumber" required="required">
+                        <span>Contact</span>
+                    </div>
+                    <div class="alert alert-danger" *ngIf="ContactNumber.errors && ContactNumber.touched">
+                        <small *ngIf="ContactNumber.errors.required">
+                          Contact Number is required
+                        </small>
+                        <small *ngIf="ContactNumber.errors.pattern">
+                          Please enter a 10 digit Phone number!!!
+                        </small>
+                    </div> 
+                    <div class="inputBox">
+                        <input type="text" name="Subject" formControlName="Subject" required="required">
+                        <span>Subject</span>
+                    </div>
+                    <div class="alert alert-danger" *ngIf="Subject.errors && Subject.touched">
+                        <small *ngIf="Subject.errors.required">
+                          Subject is required
+                        </small>  
+                      </div>
+           
+                      <div class="inputBox">
+                        <textarea name="Message" formControlName="Message" required="required"></textarea>
+                        <span>Type Your Message.....</span>
+                    </div>
+                    <div class="alert alert-danger" *ngIf="Message.errors && Message.touched">
+                        <small *ngIf="Message.errors.required">
+                          Message is required
+                        </small>  
+                      </div>
+             
+              
+                 
+                <!--<div class="form-submit">
+                    <input type="submit" value="Register" class="submit" name="submit" id="submit" />
+                </div>-->
+                <button type="submit" class="btn btn-block btn-success" [disabled]="UserForm.invalid">Submit</button>  
             </form>
         </div>
     </div>

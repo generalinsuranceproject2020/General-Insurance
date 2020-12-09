@@ -1,124 +1,117 @@
 <div class="navbar-fixed-top containe purple1 topBotomBordersOut">
-    <div class="float-left" style="color: white; font-size: x-large;">GENERAL INSURANCE</div>
-    <a routerLink="/Home">HOME</a>
-    <a *ngIf="!(loginsessionuser|| loginsessionadmin)" routerLink="/Login">LOGIN</a>
-    <a routerLink="/Contact">CONTACT</a>
-    <a routerLink="/About">ABOUT US</a>
-    <a routerLink="/Calculate">CALCULATE PREMIUM</a>
-    <a routerLink="/FAQ">FAQ</a>
-    <a *ngIf="(loginsessionuser|| loginsessionadmin)" (click)="logOff()">LOGOFF</a>
+  <div class="float-left" style="color: white; font-size: x-large;">GENERAL INSURANCE</div>
+  <a routerLink="/Home">HOME</a>
+  <a *ngIf="!(loginsessionuser|| loginsessionadmin)" routerLink="/Login">LOGIN</a>
+  <a routerLink="/Contact">CONTACT</a>
+  <a routerLink="/About">ABOUT US</a>
+  <a routerLink="/Calculate">CALCULATE PREMIUM</a>
+  <a routerLink="/FAQ">FAQ</a>
+  <a *ngIf="(loginsessionuser|| loginsessionadmin)" (click)="logOff()">LOGOFF</a>
 </div>
 <router-outlet></router-outlet>
 <footer class="page-footer font-small pt-4">
-    <!-- Footer Links -->
-    <div class="text-center text-md-left">
-      <!-- Footer links -->
-      <div class="row text-center text-md-left mt-3 pb-3" style="background-color: slateblue;">
-        <!-- Grid column -->
-        <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3" style="color: blanchedalmond;">
-          <h6 class="text-uppercase mb-4 font-weight-bold" style="font-size: x-large;">Company name</h6>
-          <p style="font-size: large;">
-            LTI Vehicle Insurance recognizes the importance of your vehicle and offers motor Insurance policies that take care of your vehicles in case of any unforeseen event.
-          </p>
-        </div>
-        <!-- Grid column -->
-  
-        <hr class="w-100 clearfix d-md-none">
-  
-        <!-- Grid column -->
-        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3" style="color: blanchedalmond;">
-          <h6 class="text-uppercase mb-4 font-weight-bold" style="font-size: x-large;">Company</h6>
-          <p style="font-size: large;">
-            <a href="#!" style="color: blanchedalmond; text-decoration: none;">Customer</a>
-          </p>
-          <p style="font-size: large;">
-            <a href="#!" style="color: blanchedalmond;text-decoration: none;">Car Insutance</a>
-          </p>
-          <p style="font-size: large;">
-            <a href="#!" style="color: blanchedalmond;text-decoration:none;">Bike Insurance</a>
-          </p>
-          <p style="font-size: large;">
-            <a href="#!" style="color: blanchedalmond;text-decoration: none;">Policy Rate</a>
-          </p>
-        </div>
-        <!-- Grid column -->
-  
-        <hr class="w-100 clearfix d-md-none">
-  
-        <!-- Grid column -->
-        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3" style="color: blanchedalmond;">
-          <h6 class="text-uppercase mb-4 font-weight-bold" style="font-size: x-large;">Useful links</h6>
-          <p style="font-size: large;">
-            <a href="#!" style="color: blanchedalmond;text-decoration: none;">Your Account</a>
-          </p>
-          <p style="font-size: large;">
-            <a href="#!" style="color: blanchedalmond;text-decoration: none;">About Us</a>
-          </p>
-          <p style="font-size: large;">
-            <a  href="#!" style="color: blanchedalmond;text-decoration: none;">Insurance Rates</a>
-          </p>
-          <p style="font-size: large;">
-            <a href="#!" style="color: blanchedalmond;text-decoration: none;">Help</a>
-          </p>
-        </div>
-  
-        <!-- Grid column -->
-        <hr class="w-100 clearfix d-md-none">
-  
-        <!-- Grid column -->
-        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
-          <h6 class="text-uppercase mb-4 font-weight-bold" style="font-size: x-large; color: blanchedalmond;">Contact</h6>
-          <p style=" font-size: large; color: blanchedalmond;">
-            <i class="fa fa-home"></i> India, Delhi</p>
-          <p style="font-size: large; color: blanchedalmond;">
-            <i class="fa fa-envelope"></i> info@gmail.com</p>
-          <p style="font-size: large; color: blanchedalmond;">
-            <i class="fa fa-phone"></i> + 022 - 234 567 88</p>
-          <p style="font-size: large; color: blanchedalmond;">
-            <i class="fa fa-print"></i> + 022 - 234 567 89</p>
-        </div>
-        <!-- Grid column -->
-  
+  <!-- Footer Links -->
+  <div class="text-center text-md-left">
+    <!-- Footer links -->
+    <div class="row text-center text-md-left mt-3 pb-3" style="background-color: slateblue;">
+      <!-- Grid column -->
+      <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3" style="color: blanchedalmond;">
+        <h6 class="text-uppercase mb-4 font-weight-bold" style="font-size: x-large;">Company name</h6>
+        <p style="font-size: large;">
+          LTI Vehicle Insurance recognizes the importance of your vehicle and offers motor Insurance policies that take care of your vehicles in case of any unforeseen event.
+        </p>
       </div>
-      <!-- Footer links -->
-      <!-- Grid row -->
-      <div class="row d-flex align-items-center" style="background-color: white;">
-        <!-- Grid column -->
-        <div class="col-md-7 col-lg-8">
-          <!--Copyright-->
-          <p class="text-center text-md-left" style="color: black; font-size: larger;">© 2020 Copyright:
-            <a href="https://mdbootstrap.com/">
-              <strong style="color: slateblue;"> Insurance.com</strong>
-            </a>
-          </p>
-  
-        </div>
-        <!-- Grid column -->
-  
-        <!-- Grid column -->
-        <div class="col-md-5 col-lg-4 ml-lg-0">
-  
-          <!-- Social buttons -->
-          <div class="text-center text-md-right">
-            <ul class="list-unstyled list-inline">
-              <li class="list-inline-item">
-                <span><a href="#" class="fa fa-twitter"></a></span>
-              </li>
-              <li class="list-inline-item">
-                <span><a href="#" class="fa fa-youtube"></a></span>
-              </li>
-              <li class="list-inline-item">
-                <span><a href="#" class="fa fa-facebook"></a></span>
-              </li>
-              <li class="list-inline-item">
-                <span><a href="#" class="fa fa-linkedin"></a></span>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <!-- Grid column -->
+      <!-- Grid column -->
+
+      <hr class="w-100 clearfix d-md-none">
+
+      <!-- Grid column -->
+      <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3" style="color: blanchedalmond;">
+        <h6 class="text-uppercase mb-4 font-weight-bold" style="font-size: x-large;">Company</h6>
+        <p style="font-size: large;">
+          <a href="#!" style="color: blanchedalmond; text-decoration: none;">Customer</a>
+        </p>
+        <p style="font-size: large;">
+          <a href="#!" style="color: blanchedalmond;text-decoration: none;">Car Insutance</a>
+        </p>
+        <p style="font-size: large;">
+          <a href="#!" style="color: blanchedalmond;text-decoration:none;">Bike Insurance</a>
+        </p>
+        <p style="font-size: large;">
+          <a href="#!" style="color: blanchedalmond;text-decoration: none;">Policy Rate</a>
+        </p>
       </div>
-      <!-- Grid row -->
+      <!-- Grid column -->
+
+      <hr class="w-100 clearfix d-md-none">
+
+      <!-- Grid column -->
+      <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3" style="color: blanchedalmond;">
+        <h6 class="text-uppercase mb-4 font-weight-bold" style="font-size: x-large;">Useful links</h6>
+        <p style="font-size: large;">
+          <a href="#!" style="color: blanchedalmond;text-decoration: none;">Your Account</a>
+        </p>
+        <p style="font-size: large;">
+          <a href="#!" style="color: blanchedalmond;text-decoration: none;">About Us</a>
+        </p>
+        <p style="font-size: large;">
+          <a  href="#!" style="color: blanchedalmond;text-decoration: none;">Insurance Rates</a>
+        </p>
+        <p style="font-size: large;">
+          <a href="#!" style="color: blanchedalmond;text-decoration: none;">Help</a>
+        </p>
+      </div>
+
+      <!-- Grid column -->
+      <hr class="w-100 clearfix d-md-none">
+
+      <!-- Grid column -->
+      <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+        <h6 class="text-uppercase mb-4 font-weight-bold" style="font-size: x-large; color: blanchedalmond;">Contact</h6>
+        <p style=" font-size: large; color: blanchedalmond;">
+          <i class="fa fa-home"></i> India, Delhi</p>
+        <p style="font-size: large; color: blanchedalmond;">
+          <i class="fa fa-envelope"></i> info@gmail.com</p>
+        <p style="font-size: large; color: blanchedalmond;">
+          <i class="fa fa-phone"></i> + 022 - 234 567 88</p>
+        <p style="font-size: large; color: blanchedalmond;">
+          <i class="fa fa-print"></i> + 022 - 234 567 89</p>
+      </div>
+      <!-- Grid column -->
+
     </div>
-    <!-- Footer Links -->
-  </footer>
+    <!-- Footer links -->
+    <!-- Grid row -->
+    <div class="row d-flex align-items-center" style="">
+      <!-- Grid column -->
+      <div class="col-md-7 col-lg-8">
+        <!--Copyright-->
+        <p class="text-center text-md-left" style="color: black; font-size: larger;">©️ 2020 Copyright:
+          <a href="https://mdbootstrap.com/">
+            <strong style="color: slateblue;"> Insurance.com</strong>
+          </a>
+        </p>
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-5 col-lg-4 ml-lg-0">
+
+        <!-- Social buttons -->
+        <div class="text-center text-md-right">
+          <ul class="social mb-0 list-inline mt-3">
+            <li class="list-inline-item " ><a href="#" class="social-link btn btn-sm btn-fb " style="background: mediumblue;" ><i class="fab fa-facebook-f"></i></a></li>
+            <li class="list-inline-item "><a href="#" class="social-link btn btn-sm btn-tw " style="background: lightskyblue;"><i class="fab fa-twitter"></i></a></li>
+      
+            <li class="list-inline-item "><a href="#" class="social-link btn btn-sm btn-ins" style="background: mediumorchid;"><i class="fab fa-instagram "></i></a></li>
+            <li class="list-inline-item "><a href="#" class="social-link btn btn-sm btn-li" style="background:mediumturquoise;"><i class="fab fa-linkedin-in"></i></a></li>
+          </ul>
+  
+        </div>
+      </div>
+      <!-- Grid column -->
+    </div>
+    <!-- Grid row -->
+  </div>
+  <!-- Footer Links -->
+</footer>

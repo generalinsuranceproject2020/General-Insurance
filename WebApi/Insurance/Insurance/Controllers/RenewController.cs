@@ -18,14 +18,13 @@ namespace Insurance.Controllers
             try
             {
                 var httpRequest = HttpContext.Current.Request;
-                int period = Convert.ToInt32(httpRequest["period"]);
-                DateTime date = System.DateTime.Now.AddYears(Convert.ToInt32(httpRequest["period"]));
+                //DateTime date = System.DateTime.Now.AddYears(Convert.ToInt32(httpRequest["period"]));
                 //Save to DB
                 using (General_InsuranceEntities db = new General_InsuranceEntities())
                 {
                     int policyNo = Convert.ToInt32(httpRequest["policyno"]);
                     Policy policy = db.Policies.Find(policyNo);
-                    policy.Period = (int)((int)System.DateTime.Now.Year - (int)policy.IssueDate.Value.Year) + period;
+                    policy.Period = (int)((int)System.DateTime.Now.Year - (int)policy.IssueDate.Value.Year) + Convert.ToInt32(httpRequest["period"]);
                     policy.ExpiryDate = policy.ExpiryDate.Value.AddYears(policy.Period);
                     db.SaveChanges();
                 }

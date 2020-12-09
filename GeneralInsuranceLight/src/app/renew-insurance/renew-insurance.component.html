@@ -1,5 +1,5 @@
 <div class="row mx-auto">
-    <form class="form-elegant" #cForm="ngForm" (ngSubmit)="submit(policyNo, period, mobilenumber)">
+    <form class="form-elegant" #renewForm="ngForm" (ngSubmit)="submit(policyNo, period, mobilenumber)">
         <!--Form without header-->
         <div class="card" style="margin-left: 570px; margin-top: 100px;">
       
@@ -9,26 +9,41 @@
               </div>
              <!-- Material input name -->
           <div class="md-form form-sm">
-            <select  id ="Select" name="policyNo" class="browser-default custom-select" #policyNo="ngModel" [(ngModel)]="renew.policyNo">
-                <option selected>Select Policy Number</option>
+            <select  id ="Select" name="policyNo" class="browser-default custom-select" #policyNo="ngModel" [(ngModel)]="renew.policyNo" required>
+                <option [ngValue]="null" selected disabled>Select Policy Number</option>
                 <option id=lbl></option>
             </select>
           </div>
+          <div class="alert alert-danger" *ngIf="policyNo.errors && policyNo.touched">
+            <small *ngIf="policyNo.errors.required">
+              Policy Number is required
+            </small>  
+          </div>
           <!-- Material input email -->
           <div class="md-form form-sm">
-            <input type="text" #mobilenumber="ngModel" name="mobilenumber" [(ngModel)]="renew.mobilenumber" id="materialFormEmailModalEx1" class="form-control form-control-sm">
+            <input type="text" #mobilenumber="ngModel" name="mobilenumber" [(ngModel)]="renew.mobilenumber" id="materialFormEmailModalEx1" class="form-control form-control-sm" required>
             <label for="materialFormEmailModalEx1">Mobile Number</label>
+          </div>
+          <div class="alert alert-danger" *ngIf="mobilenumber.errors && mobilenumber.touched">
+            <small *ngIf="mobilenumber.errors.required">
+              Mobile Number is required
+            </small>  
           </div>
   
           <!-- Material input subject -->
           <div class="md-form form-sm">
-            <select #period="ngModel" name="period" [(ngModel)]="renew.Period" id ="Select" class="browser-default custom-select">
-                <option [ngValue]="null" selected>Select Period</option>
+            <select #period="ngModel" name="period" [(ngModel)]="renew.Period" id ="Select" class="browser-default custom-select" required>
+                <option [ngValue]="null" selected disabled>Select Period</option>
                 <option *ngFor="let period of periods" [ngValue]="period">{{period}}</option>
             </select>
           </div>
+          <div class="alert alert-danger" *ngIf="period.errors && period.touched">
+            <small *ngIf="period.errors.required">
+              Period is required
+            </small>  
+          </div>
           <div class="text-center mt-4 mb-2">
-            <button class="btn btn-primary" type="submit">Renew
+            <button class="btn btn-deep-purple btn-rounded" [disabled]="renewForm.invalid" style="border-radius: 30px;" type="submit">Renew
               <i class="fa fa-send ml-2"></i>
             </button>
           </div>

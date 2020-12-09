@@ -26,6 +26,7 @@ import { ClaimSc } from './services/claimsc';
 import { RenewService } from './services/renewservices';
 import { AdminComponent } from './admin/admin.component';
 import { EmployeeService } from './services/adminservice';
+import { ContactSc } from './services/contactservice';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,7 @@ import { EmployeeService } from './services/adminservice';
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [BuyInsuranceService, ForgotserviceService, RegisterationService, ClaimService, ClaimSc, RenewService, EmployeeService],
+  providers: [BuyInsuranceService, ForgotserviceService, RegisterationService, ClaimService, ClaimSc, RenewService, EmployeeService, ContactSc],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

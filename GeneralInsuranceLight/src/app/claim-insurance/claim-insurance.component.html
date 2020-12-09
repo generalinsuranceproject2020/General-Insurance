@@ -9,25 +9,38 @@
               </div>
              <!-- Material input name -->
           <div class="md-form form-sm">
-            <select  id ="Select" name="policyNo" class="browser-default custom-select" #policyNo="ngModel" [(ngModel)]="claim.policyNo">
+            <select  id ="Select" name="policyNo" class="browser-default custom-select" #policyNo="ngModel" [(ngModel)]="claim.policyNo" required>
                 <option [ngValue]="null" selected>Select Policy Number</option>
                 <option id=lbl></option>
             </select>
+          </div>
+          <div class="alert alert-danger" *ngIf="policyNo.errors && policyNo.touched">
+            <small *ngIf="policyNo.errors.required">
+              Policy Number is required
+            </small>  
           </div>
           <!-- Material input email -->
           
           <div class="md-form form-sm">
             <span >Mobile Number</span>
             <input type="text" #mobilenumber="ngModel" name="mobilenumber" [(ngModel)]="claim.mobilenumber" id="materialFormEmailModalEx1" class="form-control form-control-sm">
-            
           </div>
-  
+          <div class="alert alert-danger" *ngIf="mobilenumber.errors && mobilenumber.touched">
+            <small *ngIf="mobilenumber?.errors.required">
+              Mobile Number is required
+            </small>  
+          </div>
           <!-- Material input subject -->
           <div class="md-form form-sm">
-            <select #reason="ngModel" name="reason" [(ngModel)]="claim.reason" id ="Select" class="browser-default custom-select">
-                <option [ngValue]="null" selected>Select Reason</option>
+            <select #reason="ngModel" name="reason" [(ngModel)]="claim.reason" id ="Select" class="browser-default custom-select" required>
+                <option [ngValue]="null" selected disabled>Select Reason</option>
                 <option *ngFor="let reason of reasons" [ngValue]="reason">{{reason}}</option>
             </select>
+          </div>
+          <div class="alert alert-danger" *ngIf="reason.errors && reason.touched">
+            <small *ngIf="reason.errors.required">
+             Claim reason is required
+            </small>  
           </div>
   
           <!-- Material textarea message -->
@@ -40,14 +53,19 @@
                 </div>
             </div>
         </div>
+        <div class="alert alert-danger" *ngIf="image.errors && image.touched">
+            <small *ngIf="image.errors.required">
+              Vehicle Image is required
+            </small>  
+          </div>
         <label style="color: white;">Claim Amount: </label>
             <label #labelName id="labelName" class="wrap-input3 form-select" style="color: white; margin-top: 45px;">
         </label>
-  
+        
           <div class="text-center mt-4 mb-2">
-            <button class="btn btn-primary" type="submit">Claim
-              <i class="fa fa-send ml-2"></i>
-            </button>
+            <button class="btn btn-deep-purple btn-rounded" style="border-radius: 30px;" type="submit">Claim
+                <i class="fa fa-send ml-2"></i>
+              </button>
           </div>
         </div>
         </div>

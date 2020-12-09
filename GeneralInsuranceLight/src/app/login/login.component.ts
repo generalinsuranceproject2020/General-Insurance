@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
           //debugger;    
         }    
         else{    
-          this.errorMessage = data.Message;    
+          alert("Invalid login credential")    
         }    
       },    
       error => {    

@@ -34,16 +34,23 @@ namespace Insurance.Controllers
                 }
             }
             List<CustomerDetails> customers = new List<CustomerDetails>();
-            foreach (var item in emp)
+            try
             {
-                if(Customerid == item.CustomerID)
+                foreach (var item in emp)
                 {
-                    string CustomerName = item.CustomerName;
-                    string Email = item.Email;
-                    string MobileNumber = item.ContactNumber;
-                    DateTime? DateOfBirth = item.DateOfBirth;
-                    customers.Add(new CustomerDetails(CustomerName, Email, MobileNumber, DateOfBirth));
+                    if (Customerid == item.CustomerID)
+                    {
+                        string CustomerName = item.CustomerName;
+                        string Email = item.Email;
+                        string MobileNumber = item.ContactNumber;
+                        DateTime? DateOfBirth = item.DateOfBirth;
+                        customers.Add(new CustomerDetails(CustomerName, Email, MobileNumber, DateOfBirth));
+                    }
                 }
+            }
+            catch(Exception)
+            {
+                throw;
             }
             if (Customerid > 0)
             {
@@ -69,27 +76,34 @@ namespace Insurance.Controllers
                 }
             }
             List<ClaimInsurance> a = new List<ClaimInsurance>();
-            foreach (var item in emp)
+            try
             {
-                foreach (var item1 in emp1)
+                foreach (var item in emp)
                 {
-                    if (item.CustomerID == item1.CustomerID && item.VehicleID == item1.VehicleID && item.CustomerID == Customerid)
+                    foreach (var item1 in emp1)
                     {
-
-                        if (item1.PolicyStatus == "Approved")
+                        if (item.CustomerID == item1.CustomerID && item.VehicleID == item1.VehicleID && item.CustomerID == Customerid)
                         {
-                           int policyid = item1.PolicyID;
-                            string model = item.Model;
-                            string policyname = item1.PolicyName;
-                            double policyamount = item1.PolicyAmount;
-                            int period = item1.Period;
-                            DateTime? expirydate = item1.ExpiryDate; 
-                            a.Add(new ClaimInsurance(policyid, policyname, policyamount, period, expirydate, model));
+
+                            if (item1.PolicyStatus == "Approved")
+                            {
+                                int policyid = item1.PolicyID;
+                                string model = item.Model;
+                                string policyname = item1.PolicyName;
+                                double policyamount = item1.PolicyAmount;
+                                int period = item1.Period;
+                                DateTime? expirydate = item1.ExpiryDate;
+                                a.Add(new ClaimInsurance(policyid, policyname, policyamount, period, expirydate, model));
+                            }
+
                         }
-
                     }
-                }
 
+                }
+            }
+            catch (Exception)
+            {
+                throw;
             }
             if (a.Count > 0)
             {
