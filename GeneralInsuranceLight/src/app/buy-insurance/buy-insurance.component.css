@@ -217,6 +217,7 @@ iframe {
 .wrap-input3 {
   width: 100%;
   position: relative;
+  background-color: slateblue;
   border-bottom: 2px solid #fff;
   margin-bottom: 27px;
 }
@@ -258,6 +259,13 @@ iframe {
   background: rgb(53, 52, 52);
 }
 
+  .md-form .prefix ~ select {
+    margin-left: 3rem;
+    width: 92%;
+    width: -webkit-calc(100% - 3rem);
+    width: calc(100% - 3rem);
+    background-color: transparent;
+   }
 
 /*---------------------------------------------*/
 input.input3 {
@@ -270,7 +278,6 @@ textarea.input3 {
   padding-top: 13px;
   padding-bottom: 13px;
 }
-
 
 .input3:focus + .focus-input3::before {
   width: 100%;

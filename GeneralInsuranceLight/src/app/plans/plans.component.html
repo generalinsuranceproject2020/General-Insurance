@@ -28,7 +28,7 @@
                     <div class="form-group ">
                         <div class="wrap-input3 form-select">
                             <select class ="mdb-select md-form" #period [(ngModel)]="plan.period" style="margin-bottom: 8px;" name="period" id="period" required>
-                                <option value="" selected>Chose Your Period</option>
+                                <option [ngValue]="null" disabled>Choose Your Period</option>
                                 <option value="1">One Year</option>
                                 <option value="2">Two Year</option>
                                 <option value="3">Three Year</option>
@@ -36,7 +36,7 @@
                             <span class="select-icon"><i class="zmdi zmdi-caret-down"></i></span>
                         </div>
                     </div>
-                </div>
+                </div> 
                 <label style="color: white;">Premium Per Month: </label>
                 <label #lblName id="lblName" class="wrap-input3 form-select" style="color: white; margin-top: 45px;">
                 </label>

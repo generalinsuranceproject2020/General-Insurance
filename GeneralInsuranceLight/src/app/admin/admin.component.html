@@ -36,11 +36,13 @@ text-shadow: 2px 2px 4px #000000;" class="border border-primary">Admin Dashboard
 
 <div class="modal fade" id="modalSubscriptionForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
   aria-hidden="true">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog" role="document" style="max-width: 60%">
     <div class="modal-content">
 <table class="center" class="table table-hover">
     <thead>
     <tr>
+        <td>Customer Id</td>
+        <td>Customer Name</td>
         <td>Adhar</td>
         <td>Vehicle Document</td>
         <td>Driving </td>
@@ -49,6 +51,8 @@ text-shadow: 2px 2px 4px #000000;" class="border border-primary">Admin Dashboard
     </thead>
         <tbody *ngFor="let e of empdetails">
             <tr>
+                <td>{{e.CustomerID}}</td>
+                <td>{{e.CustomerName}}</td>
                 <td><img src="http://localhost:20481/Image/{{e.adhar}}" height="100" width="100"></td>
                 <td><img src="http://localhost:20481/Image/{{e.vehicledocument}}" height="100" width="100"></td>
                 <td><img src="http://localhost:20481/Image/{{e.License}}" height="100" width="100"></td>
@@ -64,7 +68,7 @@ text-shadow: 2px 2px 4px #000000;" class="border border-primary">Admin Dashboard
 
 <div class="modal fade" id="modalSubscriptionForm1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
   aria-hidden="true">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog" role="document" style="max-width: 60%">
     <div class="modal-content">
 <table class="center" class="table table-hover">
     <thead>

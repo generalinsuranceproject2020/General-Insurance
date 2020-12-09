@@ -34,11 +34,11 @@
                 <div *ngIf="(manufacturer.touched || buyForm.submitted) && manufacturer.errors?.required" class="alert alert-danger">
                     Manufacturer Details is required
                 </div>
-                <div class="form-row">
+                <div class="form-row" style="background-color: slateblue;">
                     <div class="form-group ">
-                        <div class="wrap-input3 form-select">
+                        <div class="wrap-input3 form-select" style="width: 390px; background: transparent;">
                             
-                            <select class ="mdb-select md-form" #model="ngModel" [(ngModel)]="buy.model" style="margin-bottom: 8px;" name="model" id="model" required>
+                            <select class ="form-control prefix mdb-select md-form" style="background: slateblue;" #model="ngModel" [(ngModel)]="buy.model" style="margin-bottom: 8px;" name="model" id="model" required>
                                 <option [ngValue]="null" disabled>Select Model</option>
                                 <option *ngFor="let car of cars" [ngValue]="car.name">{{car.name}}</option>
                             </select>
@@ -47,6 +47,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div *ngIf="isSubmitted && buyForm.invalid" class="alert alert-danger">
                     Select value
                 </div>

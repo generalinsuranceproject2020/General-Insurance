@@ -26,12 +26,15 @@ namespace Insurance.Controllers
                         {
                             if (item1.PolicyStatus == "Pending")
                             {
+                                int cid = Convert.ToInt32(item.CustomerID);
+                                Customer c = db.Customers.Find(cid);
+                                string name = c.CustomerName;
                                 var adhar = item.AadharURL;
                                 var vehicledocument = item.VehicleDocumentURL;
                                 var License = item.DrivingLicenseURL;
                                 var status = item1.PolicyStatus;
                                 int PolicyID = item1.PolicyID;
-                                a.Add(new Admin(adhar, vehicledocument, License, status, PolicyID));
+                                a.Add(new Admin(cid, name, adhar, vehicledocument, License, status, PolicyID));
                             }
 
                         }

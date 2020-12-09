@@ -42,7 +42,7 @@ export class ContactUsComponent implements OnInit {
     const user = this.UserForm.value;   
     console.log(user); 
     this.Createemployee(user);   
-     
+    alert("Your query is submitted. We will look into it");
   } 
   Createemployee(register:Contact)    
   {    
