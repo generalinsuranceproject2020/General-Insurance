@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
           //debugger;    
         }    
         else{    
-          alert("Invalid login credential")    
+          alert("Invalid login credential");  
         }    
       },    
       error => {    
@@ -55,7 +55,7 @@ export class LoginComponent implements OnInit {
   finalregister(){
     this.router.navigate(['/Register']);
   }
-  forgotPassword(){
+  forgotpassword(){
     this.router.navigate(['/ForgotPassword']);
   }
 }

@@ -9,6 +9,7 @@ namespace Insurance.Models
     {
         public string Email { set; get; }
         public string Password { set; get; }
+
     }
     public class Registration : Customer { }
 }

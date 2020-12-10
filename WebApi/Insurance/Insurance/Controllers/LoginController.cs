@@ -72,24 +72,32 @@ namespace Insurance.Controllers
             {
                 return new Response { Status = "Invalid", Message = "Invalid User." };
             }*/
-            List<Customer> emp = DB.Customers.ToList();
-            string msg = "";
-            string password = Lg.Password;
-            byte[] encode = new byte[password.Length];
-            encode = Encoding.UTF8.GetBytes(password);
-            msg = Convert.ToBase64String(encode);
-            foreach (var item in emp)
+            try
             {
-                if (item.Email == Lg.Email && item.Password == msg)
+                List<Customer> emp = DB.Customers.ToList();
+                string msg = "";
+                string password = Lg.Password;
+                byte[] encode = new byte[password.Length];
+                encode = Encoding.UTF8.GetBytes(password);
+                msg = Convert.ToBase64String(encode);
+                foreach (var item in emp)
                 {
-                    //session["user"] = item.Email;
-                    CustEmail = Lg.Email;
-                    return new Response { Status = "Success", Message = Lg.Email };
+                    if (item.Email == Lg.Email && item.Password == msg)
+                    {
+                        //session["user"] = item.Email;
+                        CustEmail = Lg.Email;
+                        return new Response { Status = "Success", Message = Lg.Email };
+
+                    }
 
                 }
-
+            }
+            catch(Exception)
+            {
+                return new Response { Status = "Invalid", Message = "Invalid User." };
             }
             return new Response { Status = "Invalid", Message = "Invalid User." };
+
         }
         public HttpResponseMessage Get()
         {
