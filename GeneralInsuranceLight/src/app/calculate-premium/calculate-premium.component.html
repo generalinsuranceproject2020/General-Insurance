@@ -13,7 +13,7 @@
                             Two Wheeler
                         </label>
                     </div>
-
+                    &nbsp;&nbsp;&nbsp;&nbsp;
                     <div class="contact3-form-radio">
                         <input class="input-radio3" formControlName="vehicle" id="radio4" type="radio" name="vehicle" value="four" (change)="changeCar($event)"> 
                         <label class="label-radio3" for="radio4">
@@ -32,7 +32,7 @@
                             Third Party
                         </label>
                     </div>
-
+                    &nbsp;&nbsp;&nbsp;&nbsp;
                     <div class="contact3-form-radio">
                         <input class="input-radio3" formControlName="third" id="radio2" type="radio" name="third" value="comprehensive"> 
                         <label class="label-radio3" for="radio2">
@@ -71,6 +71,7 @@
                 <div *ngIf="isSubmitted && customForm.invalid" class="alert alert-danger">
                     Select Age
                 </div>
+                <label style="color: white;">Premium Per Month</label>
                 <label #lblName id="lblName" class="wrap-input3 form-select" style="color: white; margin-top: 45px;">
                 </label>
                 <div class="container-contact3-form-btn">
