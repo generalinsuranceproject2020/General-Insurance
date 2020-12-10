@@ -64,7 +64,7 @@ export class CalculatePremiumComponent implements OnInit {
     else
       var basic = this.basicPremium(Price);
     console.log(basic);
-    if(age <= 0.6){
+    /*if(age <= 0.6){
       premium = (Price - (Price * 0.05))/12;
       //console.log(this.premium);
     }
@@ -89,7 +89,7 @@ export class CalculatePremiumComponent implements OnInit {
       //console.log(this.premium);
     }
     console.log(premium);
-    console.log(premium*basic);
+    console.log(premium*basic);*/
     var calculate = ((3 * basic)+1110);
     var total = calculate + (calculate * 0.18);
     console.log(total);
